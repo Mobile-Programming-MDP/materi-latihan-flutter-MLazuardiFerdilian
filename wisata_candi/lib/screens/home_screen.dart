@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wisata_candi/data/candi_data.dart';
 import 'package:wisata_candi/models/candi.dart';
-import 'package:wisata_candi/screens/item_card.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,9 +26,9 @@ class _HomeScreen extends State<HomeScreen> {
         itemCount: candiList.length,
         itemBuilder: (context, index) {
           Candi candi = candiList[index];
-          return ItemCard(
-            candi: candi,
-          );
+          // return ItemCard(
+          //   candi: candi,
+          // );
         },
       ),
       //TODO 3: Buat ItemCard sebagai return value dari GridView.builder
