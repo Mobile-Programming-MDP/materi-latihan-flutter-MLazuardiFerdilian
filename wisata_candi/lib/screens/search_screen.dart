@@ -30,7 +30,7 @@ class _SearchScreenState extends State<SearchScreen> {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
-                  color: Colors.deepPurple[50],
+                  color: Colors.deepPurple.shade100,
                 ),
                 child: const TextField(
                   autofocus: false,
@@ -50,7 +50,6 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
             ),
-
             //Todo5 : 5. Buat ListView hasil pencarian sebagai anak dari column
             Expanded(
               child: ListView.builder(
@@ -58,10 +57,8 @@ class _SearchScreenState extends State<SearchScreen> {
                 itemBuilder: (context, index) {
                   final candi = _filterCandis[index];
                   return Card(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 16,
-                      vertical: 4,
-                    ),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -69,41 +66,20 @@ class _SearchScreenState extends State<SearchScreen> {
                           padding: const EdgeInsets.all(8),
                           width: 100,
                           height: 100,
-                          child: ClipRect(
-                            child: Image.asset(
-                              candi.imageAsset,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10)),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                candi.name,
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 4,
-                              ),
-                              Text(
-                                candi.location,
-                              )
-                            ],
-                          ),
+                        Image.asset(
+                          candi.imageAsset,
+                          fit: BoxFit.cover,
                         ),
+                        Column()
                       ],
                     ),
                   );
                 },
               ),
-            ) 
-
+            ),
           ],
         ));
   }
